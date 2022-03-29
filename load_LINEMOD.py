@@ -55,7 +55,7 @@ def load_LINEMOD_data(basedir, half_res=False, testskip=1):
             
         for idx_test, frame in enumerate(meta['frames'][::skip]):
             # fname = frame['file_path']
-            fname = os.path.join(basedir, frame['file_path'] + '.jpg')
+            fname = os.path.join(basedir, frame['file_path'] + '.png')
             if s == 'test':
                 print(f"{idx_test}th test frame: {fname}")
             imgs.append(imageio.imread(fname))
@@ -84,7 +84,7 @@ def load_LINEMOD_data(basedir, half_res=False, testskip=1):
         focal = focal/2.
         K = None # the raw K is invalid
 
-        imgs_half_res = np.zeros((imgs.shape[0], H, W, 3))
+        imgs_half_res = np.zeros((imgs.shape[0], H, W, 4))
         for i, img in enumerate(imgs):
             imgs_half_res[i] = cv2.resize(img, (W, H), interpolation=cv2.INTER_AREA)
         imgs = imgs_half_res
