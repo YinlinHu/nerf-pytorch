@@ -422,8 +422,8 @@ def config_parser():
 
     import configargparse
     parser = configargparse.ArgumentParser()
-    parser.add_argument('--config', is_config_file=True, 
-                        help='config file path')
+    # parser.add_argument('--config', is_config_file=True,default='./configs/lego.txt', help='config file path')
+    parser.add_argument('--config', is_config_file=True,default='./configs/speed.txt', help='config file path')
     parser.add_argument("--expname", type=str, 
                         help='experiment name')
     parser.add_argument("--basedir", type=str, default='./logs/', 
